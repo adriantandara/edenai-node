@@ -26,7 +26,6 @@ const getApiResponse = () => {
     .getChatResponse("Can you help me?", "openai")
     .then((response) => console.log(response))
     .catch(console.error);
-  return response;
 };
 
 getApiResponse();
