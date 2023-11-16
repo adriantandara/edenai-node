@@ -15,7 +15,7 @@ export class EdenAINode {
    * @description https://www.edenai.co/ - to get the API key
    * @returns Promise<string> - response by ai
    */
-  public getChatResponse(
+  getChatResponse(
     prompt: string,
     provider: "google" | "openai"
   ): Promise<string> {
