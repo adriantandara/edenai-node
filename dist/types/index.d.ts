@@ -9,5 +9,5 @@ export declare class EdenAINode {
      * @description https://www.edenai.co/ - to get the API key
      * @returns string - response by ai
      */
-    getChatResponse(prompt: string, provider: "google" | "openai"): Promise<void>;
+    getChatResponse(prompt: string, provider: "google" | "openai"): void;
 }
