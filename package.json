@@ -1,6 +1,6 @@
 {
   "name": "edenai-node",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "A Node.js module for seamless interaction with Eden AI's API, enabling easy GET requests for various functionalities.",
   "main": "dist/index.js",
   "types": "dist/types/index.d.ts",
