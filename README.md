@@ -22,7 +22,10 @@ import { EdenAINode } from "edenai-node";
 const edenAI = new EdenAINode("api_key");
 
 const getApiResponse = () => {
-  const response = edenAI.getChatResponse("Can you help me?", "openai");
+  edenAI
+    .getChatResponse("Can you help me?", "openai")
+    .then((response) => console.log(response))
+    .catch(console.error);
   return response;
 };
 
