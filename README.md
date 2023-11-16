@@ -29,7 +29,7 @@ const getApiResponse = () => {
   return response;
 };
 
-console.log(getApiResponse());
+getApiResponse();
 ```
 
 ## Other informations
