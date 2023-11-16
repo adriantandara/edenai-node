@@ -24,7 +24,7 @@ export class EdenAINode {
       throw new Error("Invalid provider");
     }
 
-    axios(`${this.apiUrl}/text/chat`, {
+    return axios(`${this.apiUrl}/text/chat`, {
       method: "POST",
       headers: {
         accept: "application/json",
