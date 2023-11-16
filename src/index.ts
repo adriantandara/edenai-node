@@ -28,23 +28,23 @@ export class EdenAINode {
     }
 
     return new Promise<string>((resolve, reject) => {
-      axios
-        .post(`${this.apiUrl}/text/chat`, {
-          headers: {
-            accept: "application/json",
-            "Content-Type": "application/json",
-            authorization: `Bearer ${this.apiKey}`,
-          },
-          data: {
-            response_as_dict: true,
-            attributes_as_list: false,
-            show_original_response: false,
-            temperature: 0,
-            max_tokens: 1000,
-            providers: provider,
-            text: prompt,
-          },
-        })
+      axios(`${this.apiUrl}/text/chat`, {
+        method: "POST",
+        headers: {
+          accept: "application/json",
+          "content-type": "application/json",
+          authorization: `Bearer ${this.apiKey}`,
+        },
+        data: {
+          response_as_dict: true,
+          attributes_as_list: false,
+          show_original_response: false,
+          temperature: 0,
+          max_tokens: 1000,
+          providers: provider,
+          text: prompt,
+        },
+      })
         .then((response) => {
           const data = response.data;
 
