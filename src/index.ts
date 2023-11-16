@@ -2,7 +2,7 @@ import axios, { AxiosResponse } from "axios";
 
 export class EdenAINode {
   private apiKey: string;
-  private apiUrl: string = "https://api.edenai.run/v2/";
+  private apiUrl: string = "https://api.edenai.run/v2";
 
   constructor(apiKey: string) {
     this.apiKey = apiKey;
@@ -29,9 +29,13 @@ export class EdenAINode {
 
     return new Promise<string>((resolve, reject) => {
       axios
-        .post(
-          `${this.apiUrl}/text/chat`,
-          {
+        .post(`${this.apiUrl}/text/chat`, {
+          headers: {
+            accept: "application/json",
+            "Content-Type": "application/json",
+            authorization: `Bearer ${this.apiKey}`,
+          },
+          data: {
             response_as_dict: true,
             attributes_as_list: false,
             show_original_response: false,
@@ -40,14 +44,7 @@ export class EdenAINode {
             providers: provider,
             text: prompt,
           },
-          {
-            headers: {
-              accept: "application/json",
-              "Content-Type": "application/json",
-              authorization: `Bearer ${this.apiKey}`,
-            },
-          }
-        )
+        })
         .then((response) => {
           const data = response.data;
 
