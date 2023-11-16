@@ -12,7 +12,7 @@ npm install edenai-node
 
 ## How to use
 
-> [!NOTE]  
+> Check out our public installable module for typescript / javascript: https://www.npmjs.com/package/edenai-node
 > API key is required to get the response from AI.
 
 ```javascript
