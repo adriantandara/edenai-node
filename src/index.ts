@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios, { AxiosResponse } from "axios";
 
 export class EdenAINode {
   private apiKey: string;
@@ -13,9 +13,12 @@ export class EdenAINode {
    * @param message string
    * @param provider string - `openai` | `google`
    * @description https://www.edenai.co/ - to get the API key
-   * @returns string - response by ai
+   * @returns Promise<string> - response by ai
    */
-  public getChatResponse(prompt: string, provider: "google" | "openai") {
+  public getChatResponse(
+    prompt: string,
+    provider: "google" | "openai"
+  ): Promise<string> {
     if (!this.apiKey) {
       throw new Error("EdenAI API Key not set");
     }
@@ -24,30 +27,37 @@ export class EdenAINode {
       throw new Error("Invalid provider");
     }
 
-    return axios(`${this.apiUrl}/text/chat`, {
-      method: "POST",
-      headers: {
-        accept: "application/json",
-        "Content-Type": "application/json",
-        authorization: `Bearer ${this.apiKey}`,
-      },
-      data: {
-        response_as_dict: true,
-        attributes_as_list: false,
-        show_original_response: false,
-        temperature: 0,
-        max_tokens: 1000,
-        providers: provider,
-        text: prompt,
-      },
-    })
-      .then(({ data }) => {
+    return axios
+      .post(
+        `${this.apiUrl}/text/chat`,
+        {
+          response_as_dict: true,
+          attributes_as_list: false,
+          show_original_response: false,
+          temperature: 0,
+          max_tokens: 1000,
+          providers: provider,
+          text: prompt,
+        },
+        {
+          headers: {
+            accept: "application/json",
+            "Content-Type": "application/json",
+            authorization: `Bearer ${this.apiKey}`,
+          },
+        }
+      )
+      .then((response: AxiosResponse) => {
+        const data = response.data;
+
         if (data.openai.status === "success") {
           return data.openai.generated_text;
-        } else throw new Error("Not found response for chat.");
+        } else {
+          throw new Error("Not found response for chat.");
+        }
       })
-      .catch((e) => {
-        throw new Error(e);
+      .catch((error) => {
+        throw new Error(error);
       });
   }
 }
