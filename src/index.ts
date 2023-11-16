@@ -47,7 +47,7 @@ export class EdenAINode {
           },
         }
       )
-      .then((response: AxiosResponse) => {
+      .then((response) => {
         const data = response.data;
 
         if (data.openai.status === "success") {
