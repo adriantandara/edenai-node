@@ -15,7 +15,7 @@ export class EdenAINode {
    * @description https://www.edenai.co/ - to get the API key
    * @returns string - response by ai
    */
-  public async getChatResponse(prompt: string, provider: "google" | "openai") {
+  public getChatResponse(prompt: string, provider: "google" | "openai") {
     if (!this.apiKey) {
       throw new Error("EdenAI API Key not set");
     }
@@ -41,7 +41,7 @@ export class EdenAINode {
         text: prompt,
       },
     })
-      .then(async ({ data }) => {
+      .then(({ data }) => {
         if (data.openai.status === "success") {
           return data.openai.generated_text;
         } else throw new Error("Not found response for chat.");
