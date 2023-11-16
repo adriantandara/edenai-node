@@ -36,10 +36,10 @@ getApiResponse();
 
 The module requires the following:
 
-| Parametru | Descriere                                                 |
-| --------- | --------------------------------------------------------- |
-| apikey    | You can get it from: https://www.edenai.co/               |
-| providers | The following providers are available: `openai`, `google` |
+| Parameters | Description                                               |
+| ---------- | --------------------------------------------------------- |
+| apikey     | You can get it from: https://www.edenai.co/               |
+| providers  | The following providers are available: `openai`, `google` |
 
 # Roadmap
 
@@ -49,6 +49,7 @@ The module requires the following:
 | Voice AI       | ❌ Pending |
 | Speech To Text | ❌ Pending |
 | Text To Speech | ❌ Pending |
+| Image AI       | ❌ Pending |
 
 ## Contribution
 
