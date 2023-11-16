@@ -41,6 +41,15 @@ The module requires the following:
 | apikey    | You can get it from: https://www.edenai.co/               |
 | providers | The following providers are available: `openai`, `google` |
 
+# Roadmap
+
+| Task           | Status     |
+| -------------- | ---------- |
+| Chat AI        | ✔️ Done    |
+| Voice AI       | ❌ Pending |
+| Speech To Text | ❌ Pending |
+| Text To Speech | ❌ Pending |
+
 ## Contribution
 
 If you want to contribute to this project, please consult the [contribution guide](https://github.com/adriantandara/edenai-node/pulls).
